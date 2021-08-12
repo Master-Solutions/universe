@@ -1,1 +1,3 @@
-export * from './lib/LayoutBlocks/LayoutBlocks';
+import {Box, Square, Circle} from '@chakra-ui/layout'
+
+export {Box, Square, Circle}

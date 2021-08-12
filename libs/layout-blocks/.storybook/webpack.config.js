@@ -24,6 +24,7 @@ module.exports = async ({ config, mode }) => {
     "@emotion/core": path.join(__dirname, "../../../node_modules/@emotion/react"),
     "emotion-theming": path.join(__dirname, "../../../node_modules/@emotion/react"),
     "@emotion/styled": path.join(__dirname, "../../../node_modules/@emotion/styled"),
+    "@chakra-ui/system": path.join(__dirname, "../../../node_modules/@chakra-ui/system"),
   }
   const svgRuleIndex = config.module.rules.findIndex((rule) => {
     const { test } = rule;
