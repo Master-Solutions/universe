@@ -1,3 +1,3 @@
-import {Box, Square, Circle} from '@chakra-ui/layout'
+import {Box, Flex, Square, Circle, Stack, VStack, HStack} from '@chakra-ui/layout'
 
-export {Box, Square, Circle}
+export {Box, Flex, Square, Circle, Stack, VStack, HStack}
