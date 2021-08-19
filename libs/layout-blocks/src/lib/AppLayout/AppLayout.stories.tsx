@@ -9,6 +9,8 @@ import PadBox from '../PadBox/PadBox';
 import Brand from '../Marketing/Brand/Brand';
 import Center from '../Center/Center';
 import Card from '../Marketing/Card/Card';
+import UserSessionInfo from '../Marketing/UserSessionInfo/UserSessionInfo';
+import MainMenu from '../Marketing/MainMenu/LeftMenu';
 
 export default {
   component: Stack,
@@ -19,9 +21,21 @@ export const Default = () => {
 
   return (
   <AppLayout
-    headerLeft={<PadBox padding={["0 20px"]}><Brand fs={"25px"}>Company Name/Logo</Brand> </PadBox>}
-    headerRight={<><div>Hello, Alex</div> <Avatar bg={"#cc5f5f"} padding={"5px"} color={"#FFFFFF"} value={" AC "} /></>}
-    leftSidebar={<LeftMenu />}>
+    headerLeft={
+      <>
+        <Brand />
+        <MainMenu/>
+      </>
+    }
+    headerRight={
+      <>
+        <UserSessionInfo />
+        <Avatar  />
+      </>
+    }
+    leftSidebar={
+      <LeftMenu />
+    }>
     <PadBox padding={["10px 20px"]}>
       <h1>Main Content</h1>
       <Card w={"300px"}></Card>

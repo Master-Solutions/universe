@@ -2,9 +2,7 @@ import React from 'react';
 import { BoxProps } from '@chakra-ui/layout';
 import { Box } from '@unvrse/layout-blocks';
 
-interface ContainerProps extends BoxProps{
-  temp: any
-}
+type ContainerProps = BoxProps;
 
 const Container = (props: ContainerProps) => {
 
@@ -12,7 +10,5 @@ const Container = (props: ContainerProps) => {
     <Box {...props} />
   );
 };
-
-
 
 export default Container;

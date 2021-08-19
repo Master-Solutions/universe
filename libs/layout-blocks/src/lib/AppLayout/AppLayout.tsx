@@ -16,25 +16,29 @@ interface AppLayoutProps {
 }
 
 const AppLayout = (props: AppLayoutProps) => {
-  console.log("---props", props)
   return (
-    <Container border="1px solid red">
+    <Container>
 
-      <JustifiedRow bg={"#3d4977"} color={"#FFF"} >
-        <HStack>
-          {props.headerLeft}
-        </HStack>
-        <HStack>
-          {props.headerRight}
-        </HStack>
+      <JustifiedRow bg={"#3d4977"} minH="70px" >
+        <PadBox padding={["10px 10px"]}>
+          <HStack>
+            {props.headerLeft}
+          </HStack>
+        </PadBox>
+        <PadBox padding={["10px 10px"]}>
+          <HStack>
+            {props.headerRight}
+          </HStack>
+        </PadBox>
       </JustifiedRow>
 
-      <LSplit fraction="250px" sideContent={props.leftSidebar}>
+      <LSplit fraction="250px"
+              sideContent={
+                <PadBox padding={["15px"]} bgColor={"#3d4977"}>{props.leftSidebar}</PadBox>
+              }>
           {props.children}
       </LSplit>
-      <PadBox padding={["20px 50px","10px"]} >
-        Pad Box Content11
-      </PadBox>
+
     </Container>
   );
 };

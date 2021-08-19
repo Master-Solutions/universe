@@ -1,28 +1,18 @@
 import React from 'react';
-import { Flex, Stack } from '@chakra-ui/layout';
-import styled from '@emotion/styled';
+import { BoxProps } from '@chakra-ui/layout';
+import { Box } from '@unvrse/layout-blocks';
 
 
-
-interface PadBoxProps{
-  padding?: string[],
-  children: React.ReactNode
-
+interface PadBoxProps extends BoxProps {
+  padding: string | string[],
 }
 
+const PadBox = ({ padding, ...rest }: PadBoxProps) => {
+  const p = Array.isArray(padding) ? padding[0] : padding;
 
-const PadBox = (props: PadBoxProps) => {
-  const style = props.padding[0] ? {
-    padding: props.padding[0]
-  }:
-    {}
   return (
-    <div style={style}>
-      {props.children}
-    </div>
+    <Box padding={p} {...rest} />
   )
 };
-
-
 
 export default PadBox;

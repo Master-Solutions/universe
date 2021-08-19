@@ -1,14 +1,11 @@
 import React from 'react';
-import { Flex, Stack } from '@chakra-ui/layout';
+import { BoxProps, Flex } from '@chakra-ui/layout';
 
-interface JustifiedRowProps {
-  bg?: string,
-  color?: string
-}
+type JustifiedRowProps = BoxProps;
 
 const JustifiedRow = (props: JustifiedRowProps) => {
   return (
-    <Flex justify="space-between" {...props} />
+    <Flex justify="space-between" alignItems="center" {...props} />
   );
 };
 

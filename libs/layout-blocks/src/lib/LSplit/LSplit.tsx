@@ -34,7 +34,7 @@ const LSplit = (props: SplitBoxProps) => {
       flexBasis: fraction
     },{
       flexBasis: "calc(100% - "+ fraction +" )",
-      border: "3px solid black"
+      // border: "3px solid black"
 
     }]
   }
