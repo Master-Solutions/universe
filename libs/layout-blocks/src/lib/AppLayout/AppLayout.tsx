@@ -19,7 +19,7 @@ const AppLayout = (props: AppLayoutProps) => {
   return (
     <Container>
 
-      <JustifiedRow bg={"#3d4977"} minH="70px" >
+      <JustifiedRow bg={"blue.900"} minH="70px" >
         <PadBox padding={["10px 10px"]}>
           <HStack>
             {props.headerLeft}
