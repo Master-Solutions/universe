@@ -6,6 +6,8 @@ import styled from '@emotion/styled';
 
 interface SplitBoxProps{
   fraction: string,
+  sideContent: React.ReactNode,
+  children: React.ReactNode
 
 }
 
@@ -14,8 +16,8 @@ const SplitBox = styled.div({
   })
 
 
-const LSplit = (props: any) => {
-  const { fraction } = props
+const LSplit = (props: SplitBoxProps) => {
+  const { fraction, sideContent, children } = props
   let style = []
   if(fraction.split('/').length === 2){
     const ratio = fraction.split('/')
@@ -39,10 +41,10 @@ const LSplit = (props: any) => {
   return (
     <SplitBox>
       <div style={style[0]}>
-        Left Menu
+        {sideContent}
       </div>
       <div style={style[1]}>
-        Main content
+        {children}
       </div>
     </SplitBox>
   );

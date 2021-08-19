@@ -4,6 +4,7 @@ import JustifiedRow from '../JustifiedRow/JustifiedRow';
 import { HStack } from '@unvrse/layout-blocks';
 import LSplit from '../LSplit/LSplit';
 import PadBox from '../PadBox/PadBox';
+import Center from '../Center/Center';
 
 interface AppLayoutProps {
   headerLeft?: React.ReactNode,
@@ -19,7 +20,7 @@ const AppLayout = (props: AppLayoutProps) => {
   return (
     <Container border="1px solid red">
 
-      <JustifiedRow >
+      <JustifiedRow bg={"#3d4977"} color={"#FFF"} >
         <HStack>
           {props.headerLeft}
         </HStack>
@@ -29,10 +30,10 @@ const AppLayout = (props: AppLayoutProps) => {
       </JustifiedRow>
 
       <LSplit fraction="250px" sideContent={props.leftSidebar}>
-        {props.children}
+          {props.children}
       </LSplit>
-      <PadBox padding={["20px","10px"]} >
-        Pad Box Content
+      <PadBox padding={["20px 50px","10px"]} >
+        Pad Box Content11
       </PadBox>
     </Container>
   );

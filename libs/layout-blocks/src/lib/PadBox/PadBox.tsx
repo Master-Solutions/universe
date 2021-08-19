@@ -5,16 +5,17 @@ import styled from '@emotion/styled';
 
 
 interface PadBoxProps{
-  padding: string[],
+  padding?: string[],
   children: React.ReactNode
 
 }
 
 
 const PadBox = (props: PadBoxProps) => {
-  const style = {
+  const style = props.padding[0] ? {
     padding: props.padding[0]
-  }
+  }:
+    {}
   return (
     <div style={style}>
       {props.children}
