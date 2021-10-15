@@ -33,6 +33,16 @@
     ]
   },
   "projects": {
+    "context": {
+      "tags": []
+    },
+    "ctx-react-aspect": {
+      "tags": []
+    },
+    "ex1": {
+      "tags": [],
+      "implicitDependencies": ["layout-blocks"]
+    },
     "layout-blocks": {
       "tags": []
     },
