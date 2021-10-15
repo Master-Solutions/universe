@@ -36,7 +36,13 @@
     "context": {
       "tags": []
     },
+    "context-react-app": {
+      "tags": []
+    },
     "ctx-react-aspect": {
+      "tags": []
+    },
+    "ctx-react-router-aspect": {
       "tags": []
     },
     "ex1": {

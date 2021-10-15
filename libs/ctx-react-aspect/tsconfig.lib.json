@@ -4,9 +4,8 @@
     "outDir": "../../dist/out-tsc",
     "declaration": true,
     "esModuleInterop": true,
-    "jsx": "react",
-    "types": []
+    "types": ["node"]
   },
-  "include": ["**/*.ts"],
-  "exclude": ["**/*.spec.ts"]
+  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+  "exclude": ["**/*.spec.ts", "**/*.spec.tsx"]
 }

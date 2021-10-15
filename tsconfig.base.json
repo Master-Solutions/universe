@@ -17,6 +17,9 @@
     "paths": {
       "@unvrse/context": ["libs/context/src/index.ts"],
       "@unvrse/ctx-react-aspect": ["libs/ctx-react-aspect/src/index.ts"],
+      "@unvrse/ctx-react-router-aspect": [
+        "libs/ctx-react-router-aspect/src/index.ts"
+      ],
       "@unvrse/layout-blocks": ["libs/layout-blocks/src/index.ts"]
     }
   },

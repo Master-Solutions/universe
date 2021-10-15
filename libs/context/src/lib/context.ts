@@ -1,28 +1,21 @@
-interface Resource {
-  id: string,
-  value?: any
-}
-
-type Aspect = Resource;
-
-interface Feature {
-  aspects?: Aspect[]
-}
-
-const DEFAULT_NAMESPACE = 'uni';
+import { AnyResource, ConfigureFunction, ConfigureFunctionOptions } from './types';
+import { Store } from './store';
 
 class Context {
-  memo = [];
-  defaultNamespace;
+  store = new Store();
 
-  constructor(options = {
-    defaultNamespace: DEFAULT_NAMESPACE
-  }) {
-    this.defaultNamespace = options.defaultNamespace;
+  use(resource: AnyResource) {
+    this.store.add(resource);
   }
 
-  use(feature: Feature) {
-    this.memo.push(feature);
+  configure(fn: ConfigureFunction, options: ConfigureFunctionOptions = {}) {
+    fn(this, options);
+  }
+
+  run(apiId: string, options = {}) {
+    const r = this.store.getByTypeAndId('api', apiId);
+    if (!r) throw new Error(`api with id '${apiId}' not found.`);
+    return r.value.call(null, options);
   }
 
 }
