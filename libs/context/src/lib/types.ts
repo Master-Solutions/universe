@@ -1,9 +1,11 @@
 import { Context } from "./context";
 
-export interface Tag {
-  name: string,
-  value: string
-}
+// export interface Tag {
+//   name: string,
+//   value: string
+// }
+
+export type Tag = string;
 
 export interface Resource<T> {
   id: string,
