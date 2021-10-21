@@ -4,12 +4,11 @@ import { Store } from './store';
 class Context {
   store = new Store();
 
-  use(resource: AnyResource) {
-    this.store.add(resource);
-  }
-
-  configure(fn: ConfigureFunction, options: ConfigureFunctionOptions = {}) {
-    fn(this, options);
+  use(resourceOrConfigure: AnyResource | ConfigureFunction, options: ConfigureFunctionOptions = {}) {
+    if (typeof resourceOrConfigure === 'function')
+      return resourceOrConfigure(this, options);
+    else
+      this.store.add(resourceOrConfigure);
   }
 
   run(apiId: string, options = {}) {

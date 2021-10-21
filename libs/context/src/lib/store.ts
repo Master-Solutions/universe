@@ -18,7 +18,9 @@ class Store {
   }
 
   getByTypeAndId(type: string, id: string) {
-    return this.memo.find(r => r.type === type && r.id === id);
+    const r = this.memo.find(r => r.type === type && r.id === id);
+    if (!r) throw new Error(`Resource ${id} ('${type}') not found.`);
+    return r;
   }
 
   findByType(type: string) {
