@@ -5,7 +5,7 @@ export const ContextPage = () => {
   const app = useAppCtx();
 
   const types = Array.from(app.store.types.keys());
-  console.log("Types:", types);
+  // console.log("Types:", types);
 
   return (
     <div style={{textAlign: 'left'}}>

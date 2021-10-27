@@ -146,28 +146,6 @@
         }
       }
     },
-    "ctx-redux-aspect": {
-      "root": "libs/ctx-redux-aspect",
-      "sourceRoot": "libs/ctx-redux-aspect/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/ctx-redux-aspect/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ctx-redux-aspect"],
-          "options": {
-            "jestConfig": "libs/ctx-redux-aspect/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "ex1": {
       "root": "apps/ex1",
       "sourceRoot": "apps/ex1/src",
@@ -339,6 +317,30 @@
           "options": {
             "tsConfig": ["apps/layout-blocks-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/layout-blocks-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "ctx-react-redux-aspect": {
+      "root": "libs/ctx-react-redux-aspect",
+      "sourceRoot": "libs/ctx-react-redux-aspect/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/ctx-react-redux-aspect/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ctx-react-redux-aspect"],
+          "options": {
+            "jestConfig": "libs/ctx-react-redux-aspect/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
