@@ -20,6 +20,7 @@
       "@unvrse/ctx-react-router-aspect": [
         "libs/ctx-react-router-aspect/src/index.ts"
       ],
+      "@unvrse/ctx-redux-aspect": ["libs/ctx-redux-aspect/src/index.ts"],
       "@unvrse/layout-blocks": ["libs/layout-blocks/src/index.ts"]
     }
   },

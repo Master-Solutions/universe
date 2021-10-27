@@ -1,25 +1,22 @@
 import { Context } from "./context";
+import { Resource } from "./resource";
 
-// export interface Tag {
-//   name: string,
-//   value: string
-// }
-
-export type Tag = string;
-
-export interface Resource<T> {
-  id: string,
-  type: string,
-  value: T,
-  tags?: Tag[]
-}
-
-export type AnyResource = Resource<any>;
-
-export interface Feature {
-  resources: AnyResource[]
-}
+export type Predicate<T> = (r: T) => boolean;
 
 export type ConfigureFunctionOptions = any;
 export type ConfigureFunction = (ctx: Context, options?: ConfigureFunctionOptions) => void;
 
+export interface IValueProvider {
+  getValue(): any
+}
+
+export type ValueProviderClass = new (...args: any[]) => IValueProvider;
+
+export interface IResourceBehavior<T extends Resource> {
+  decorate(resource: T): any
+}
+
+export type RegisterTypeOptions<T extends Resource> = {
+  resourceClass?: typeof Resource,
+  behaviors?: IResourceBehavior<T>[]
+}

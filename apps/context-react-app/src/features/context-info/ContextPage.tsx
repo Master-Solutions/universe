@@ -4,10 +4,16 @@ import { useAppCtx } from '@unvrse/ctx-react-aspect';
 export const ContextPage = () => {
   const app = useAppCtx();
 
+  const types = Array.from(app.store.types.keys());
+  console.log("Types:", types);
+
   return (
-    <pre>
-      {JSON.stringify(app, null, 2)}
-    </pre>
+    <div style={{textAlign: 'left'}}>
+      Types:<br/>
+      <ul>
+        {types.map(t => <li key={t}>{t}</li>)}
+      </ul>
+    </div>
   )
 
 };

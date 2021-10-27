@@ -1,27 +1,27 @@
-import React, { StrictMode } from 'react';
-import * as ReactDOM from 'react-dom';
-import { ConfigureFunction, Context } from '@unvrse/context';
-import { buildRootComponent } from './lib/buildRootComponent';
-import { buildAppProvider, useAppCtx, useResource, useTypeResources } from './lib/context';
+import { StrictMode } from 'react';
+import { ConfigureFunction } from '@unvrse/context';
+import { buildRootComponent } from './lib/build-root-component';
+import { ComponentResource } from './lib/component-resource';
+import { ComposeHocsBehavior } from './lib/compose-hocs-behavior';
+import { buildMount } from './lib/build-mount';
+import { CTX_REACT_ASPECT } from './lib/constants';
+import { buildAppProvider } from './lib/build-app-provider';
 
-const mount = (ctx: Context) => {
-  return ({elementId = 'root', rootComponentId = 'root'}) => {
-    const r = ctx.store.getByTypeAndId('component', rootComponentId);
-    ReactDOM.render(React.createElement(r.value), document.getElementById(elementId))
-  }
+export * from './lib/app-context';
+export * from './lib/constants';
+
+
+const configure: ConfigureFunction = (ctx) => {
+  ctx.registerType<ComponentResource>(CTX_REACT_ASPECT.TYPE_COMPONENT, {
+    resourceClass: ComponentResource,
+    behaviors: [new ComposeHocsBehavior()]
+  });
+
+  ctx.use(CTX_REACT_ASPECT.TYPE_COMPONENT, CTX_REACT_ASPECT.ID_STRICT_MODE, StrictMode).tag(CTX_REACT_ASPECT.TAG_ROOT_WRAPPER);
+  ctx.use(CTX_REACT_ASPECT.TYPE_COMPONENT, CTX_REACT_ASPECT.ID_APP_PROVIDER, buildAppProvider(ctx)).tag(CTX_REACT_ASPECT.TAG_ROOT_WRAPPER);
+  ctx.use(CTX_REACT_ASPECT.TYPE_COMPONENT, CTX_REACT_ASPECT.ID_ROOT, buildRootComponent(ctx));
+
+  ctx.use(CTX_REACT_ASPECT.TYPE_API, CTX_REACT_ASPECT.ID_MOUNT, buildMount(ctx));
 }
-
-const configure: ConfigureFunction = (ctx, { strict = true }) => {
-  // ctx.useAspect('component');
-  if (strict)
-    ctx.use({type: 'component', id: 'strict-mode', value: StrictMode, tags: ['root-wrapper']});
-
-  ctx.use({type: 'component', id: 'app-provider', value: buildAppProvider(ctx), tags: ['root-wrapper']})
-
-  ctx.use({type: 'api', id: 'mount', value: mount(ctx)});
-  ctx.use( {type: 'component', id: 'root', value: buildRootComponent(ctx)});
-}
-
-export { useAppCtx, useTypeResources, useResource }
 
 export default configure;

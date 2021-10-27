@@ -45,6 +45,9 @@
     "ctx-react-router-aspect": {
       "tags": []
     },
+    "ctx-redux-aspect": {
+      "tags": []
+    },
     "ex1": {
       "tags": [],
       "implicitDependencies": ["layout-blocks"]

@@ -1,19 +1,21 @@
-import { ConfigureFunction } from '@unvrse/context';
+import { ConfigureFunction, CTX } from '@unvrse/context';
 import { Page1 } from './Page1';
 import { Page2 } from './Page2';
+import { CTX_REACT_ASPECT } from '@unvrse/ctx-react-aspect';
+import { CTX_REACT_ROUTER_ASPECT } from '@unvrse/ctx-react-router-aspect';
 
 const configure: ConfigureFunction = (ctx, options= {}) => {
   // pages
-  ctx.use({type: 'component', id: 'pages.page-1', value: Page1});
-  ctx.use({type: 'component', id: 'pages.page-2', value: Page2});
+  ctx.use(CTX_REACT_ASPECT.TYPE_COMPONENT, 'Page1', Page1);
+  ctx.use(CTX_REACT_ASPECT.TYPE_COMPONENT, 'Page2', Page2);
 
   // routes
-  ctx.use({type: 'route', id: 'page-1', value: { path: '/page-1', exact: true, component: 'pages.page-1' }});
-  ctx.use({type: 'route', id: 'page-2', value: { path: '/page-2', exact: true, component: 'pages.page-2' }});
+  ctx.use(CTX_REACT_ROUTER_ASPECT.TYPE_ROUTE, 'page-1', { path: '/page-1', exact: true, component: 'Page1' });
+  ctx.use(CTX_REACT_ROUTER_ASPECT.TYPE_ROUTE, 'page-2', { path: '/page-2', exact: true, component: 'Page2' });
 
   // menu items
-  ctx.use({type: 'config', id: 'ui.menu.page-1', value: { title: 'Page 1', to: '/page-1' }, tags: ['ui.menu']});
-  ctx.use({type: 'config', id: 'ui.menu.page-2', value: { title: 'Page 2', to: '/page-2' }, tags: ['ui.menu']});
+  ctx.use(CTX.TYPE_CONFIG, 'ui.menu.page-1', { title: 'Page 1', to: '/page-1' }).tag('ui.menu');
+  ctx.use(CTX.TYPE_CONFIG, 'ui.menu.page-2', { title: 'Page 2', to: '/page-2' }).tag('ui.menu');
 }
 
 export default configure;
